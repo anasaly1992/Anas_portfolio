@@ -35,7 +35,7 @@ export function Footer() {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
                 <Code2 className="h-8 w-8 text-orange-500" />
-                <span className="text-2xl font-bold">Alex Chen</span>
+                <span className="text-2xl font-bold">Anas Ali Abdel Hafeez</span>
               </div>
               <p className="text-slate-300 mb-6 leading-relaxed">
                 Senior Front-End Developer passionate about creating exceptional 
@@ -78,9 +78,9 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
               <div className="space-y-2 text-slate-300">
-                <p>San Francisco, CA</p>
-                <p>alex.chen@example.com</p>
-                <p>+1 (555) 123-4567</p>
+                <p>Riyadh, Saudi Arabia</p>
+                <p>anasaly@gmail.com</p>
+                <p>+966 502473596</p>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ export function Footer() {
           <div className="border-t border-slate-800 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-slate-300 text-sm">
-                © {currentYear} Alex Chen. All rights reserved.
+                © {currentYear} Anas Ali Abdel Hafeez. All rights reserved.
               </p>
               <p className="text-slate-300 text-sm flex items-center mt-4 md:mt-0">
                 Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> using Next.js
