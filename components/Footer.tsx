@@ -6,10 +6,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Mail, href: "mailto:alex.chen@example.com", label: "Email" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/anas-ali-444a86159/", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:anasaly1992@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
@@ -81,6 +79,7 @@ export function Footer() {
                 <p>Riyadh, Saudi Arabia</p>
                 <p>anasaly@gmail.com</p>
                 <p>+966 502473596</p>
+                <p>+20 1064043929</p>
               </div>
             </div>
           </div>
