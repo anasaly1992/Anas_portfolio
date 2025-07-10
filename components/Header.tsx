@@ -11,7 +11,6 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      debugger;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -51,11 +50,7 @@ export function Header() {
 
   return (
     <header
-    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled
-        ? "bg-white/95 backdrop-blur-sm shadow-lg"
-        : "bg-transparent"
-    }`}
+    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -66,7 +61,11 @@ export function Header() {
         isScrolled
           ? "text-slate-800"
           : "text-white"
-      }`}>
+      }`}
+      style={{
+        color:"#1d283a",
+      }}
+      >
               Anas Ali
             </span>
           </div>
@@ -79,9 +78,12 @@ export function Header() {
                 onClick={() => scrollToSection(item.id)}
                 className={`hover:text-orange-500 transition-colors duration-200 font-medium ${
                   isScrolled
-                    ? "text-slate-700"
+                    ? ""
                     : "text-white"
                 }`}
+                style={{
+                  color:"#1d283a",
+                }}
               >
                 {item.label}
               </button>

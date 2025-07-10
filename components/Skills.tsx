@@ -113,11 +113,7 @@ export function Skills() {
             {skillCategories.map((category, categoryIndex) => (
               <Card
                 key={categoryIndex}
-                className={`p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
+                className={`p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-500 `}
                 style={{ transitionDelay: `${categoryIndex * 150}ms` }}
               >
                 <CardContent className="p-0">
@@ -160,11 +156,7 @@ export function Skills() {
               {technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className={`px-4 py-2 bg-white rounded-full text-slate-700 font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-5"
-                  }`}
+                  className={`px-4 py-2 bg-white rounded-full text-slate-700 font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300`}
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {tech}

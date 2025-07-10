@@ -53,9 +53,7 @@ export function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Image */}
             <div
-              className={`relative transition-all duration-1000 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-              }`}
+              className={`relative transition-all duration-1000 `}
             >
               <img
                 src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
@@ -67,9 +65,7 @@ export function About() {
 
             {/* Right Column - Content */}
             <div
-              className={`transition-all duration-1000 delay-200 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-              }`}
+              className={`transition-all duration-1000 delay-200`}
             >
               <div className="space-y-6">
                 <h3 className="text-2xl md:text-3xl font-semibold text-slate-800">
@@ -121,11 +117,7 @@ export function About() {
               {stats.map((stat, index) => (
                 <Card
                   key={index}
-                  className={`text-center p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300 ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
-                  }`}
+                  className={`text-center p-6 border-0 shadow-lg hover:shadow-xl transition-all duration-300`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <CardContent className="p-0">

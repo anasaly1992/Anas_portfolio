@@ -113,11 +113,6 @@ export function Projects() {
                 key={project.id}
                 className={`overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-500 ${
                   project.featured ? "md:h-106" : ""
-                } ${
-
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
