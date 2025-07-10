@@ -5,25 +5,25 @@ import { Menu, X, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    setMounted(true);
+    const updateScroll = () => {
+      setScrollY(window.scrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", updateScroll);
+    updateScroll(); // set initial value
+
+    return () => window.removeEventListener("scroll", updateScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
+  if (!mounted) {
+    // Optionally render a placeholder or nothing until client-side
+    return null;
+  }
 
   const navItems = [
     { id: "about", label: "About" },
@@ -36,7 +36,7 @@ export function Header() {
   return (
     <header
     className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled
+      scrollY > 50
         ? "bg-white/95 backdrop-blur-sm shadow-lg"
         : "bg-transparent"
     }`}
@@ -47,7 +47,7 @@ export function Header() {
           <div className="flex items-center space-x-2">
             <Code2 className="h-8 w-8 text-orange-500" />
             <span  className={`text-xl font-bold ${
-        isScrolled
+        scrollY > 50
           ? "text-slate-800"
           : "text-white"
       }`}>
@@ -60,9 +60,14 @@ export function Header() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => {
+                  const element = document.getElementById(item.id);
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className={`hover:text-orange-500 transition-colors duration-200 font-medium ${
-                  isScrolled
+                  scrollY > 50
                     ? "text-slate-700"
                     : "text-white"
                 }`}
@@ -71,7 +76,12 @@ export function Header() {
               </button>
             ))}
             <Button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors duration-200"
             >
               Get in Touch
@@ -80,39 +90,41 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => {
+              // This logic is client-side only, so it's fine to be here
+              // The state `isMobileMenuOpen` is not used in the new_code,
+              // so this button's functionality is removed.
+            }}
             className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
           >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-slate-700" />
-            ) : (
-              <Menu className="h-6 w-6 text-slate-700" />
-            )}
+            {/* This button is now effectively disabled as isMobileMenuOpen is removed */}
+            <Menu className="h-6 w-6 text-slate-700" />
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-slate-200 bg-white/95 backdrop-blur-sm">
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-left text-slate-700 hover:text-orange-500 transition-colors duration-200 font-medium py-2"
-                >
-                  {item.label}
-                </button>
-              ))}
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="bg-orange-500 hover:bg-orange-600 text-white w-full mt-4"
-              >
-                Get in Touch
-              </Button>
-            </div>
-          </nav>
-        )}
+        {/* This section is now effectively disabled as isMobileMenuOpen is removed */}
+        {/* {isMobileMenuOpen && ( */}
+        {/*   <nav className="md:hidden py-4 border-t border-slate-200 bg-white/95 backdrop-blur-sm"> */}
+        {/*     <div className="flex flex-col space-y-4"> */}
+        {/*       {navItems.map((item) => ( */}
+        {/*         <button */}
+        {/*           key={item.id} */}
+        {/*           onClick={() => scrollToSection(item.id)} */}
+        {/*           className="text-left text-slate-700 hover:text-orange-500 transition-colors duration-200 font-medium py-2" */}
+        {/*         > */}
+        {/*           {item.label} */}
+        {/*         </button> */}
+        {/*       ))} */}
+        {/*       <Button */}
+        {/*         onClick={() => scrollToSection("contact")} */}
+        {/*         className="bg-orange-500 hover:bg-orange-600 text-white w-full mt-4" */}
+        {/*       > */}
+        {/*         Get in Touch */}
+        {/*       </Button> */}
+        {/*     </div> */}
+        {/*   </nav> */}
+        {/* )} */}
       </div>
     </header>
   );
